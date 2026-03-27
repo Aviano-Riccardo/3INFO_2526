@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <title>Riccardo Aviano Portfolio</title>
+  </head>
+  <body>
+    <h1>Portfolio</h1>
+    <h4><a href="index.html">Home</a></h4>
+    <h4><a href="chisono.html">Chi sono</a></h4>
+    <h4><a href="esperienze.html">Esperienze</a></h4>
+    <h4><a href="pcto.html">PCTO</a></h4>
+    <h4><a href="educazionecivica.html">Educazione Civica</a></h4>
+    <hr>
+    <h1>Progetto Codice Fiscale</h1>
+    <p>
+        Come progetto di Educazione Civica la professoressa Arruzza ci ha chiesto di creare un programma in linguaggio C che leggesse i dati dell'utente e creasse il codice fiscale. <br>
+        In questa sezione vado a spiegare il codice, come funziona e cosa ho usato per fare determinate cose. <br>
+    </p>
+
+    <table border="1" align="center" widht="100%">
+        <tr align="center">
+            <td>
+                <h2>Codice</h2>
+            </td>
+            <td>
+                <h2>Spiegazione</h2>
+            </td>
+        </tr>
+        <tr align="center">
+            <td>
+                <pre>
+                    <code>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+#define N 50
+
+char cf[17];
+
+void inserisci_cognome();
+void inserisci_nome();
+int inserisci_anno();
+void inserisci_mese();
+int inserisci_giornoSesso(int anno, char letteraMese);
+void inserisci_comune();
+void carattereControllo();</code>
+                </pre>
+            </td>
+            <td>
+                <p>Qui dichiaro le librerie necessarie al funzionamento delle funzioni che ho inserito nel codice, le costanti, un array globale che mi serve per inserire il codice fiscale completo e i prototipi delle funzioni</p>
+            </td>
+        </tr>
+        <hr>
+        <tr align="center">
+            <td>
+                <pre>
+                    <code>
+int main()
+{
+    inserisci_cognome();
+    inserisci_nome();
+    int risultato_anno = inserisci_anno();
+    inserisci_mese();
+    int risultato_giorno = inserisci_giornoSesso(risultato_anno, cf[8]);
+    inserisci_comune();
+
+    char temp[3]; // Variabile temporanea per riempire gli spazi in cf
+    sprintf(temp, "%02d", risultato_anno); 
+    cf[6] = temp[0]; cf[7] = temp[1]; 
+    
+    sprintf(temp, "%02d", risultato_giorno); // Sovrascrive temp
+    cf[9] = temp[0]; cf[10] = temp[1];
+
+    carattereControllo();
+
+    printf("Il tuo codice fiscale completo vale: %s", cf);
+
+    return 0;
+}
+                    </code>
+                </pre>
+            </td>
+            <td>
+                <p>Qui troviamo il main. Nel main passo tutte le funzioni e stampo il codice fiscale completo.</p>
+            </td>
+        </tr>
+        <hr>
+        <tr align="center">
+            <td>
+                <pre>
+                    <code>
+void inserisci_cognome()
+{
+    char cognome[N];
+    char c[N];
+    char v[N];
+    int cons = 0;
+    int voc = 0;
+
+    printf("===CODICE FISCALE MENU===\n");
+    printf("Inserisci il tuo cognome: ");
+    scanf("%s", cognome);
+
+    for (int i = 0; cognome[i] != '\0'; i++)
+    {
+        cognome[i] = toupper(cognome[i]);
+
+        if (cognome[i] != 'A' && cognome[i] != 'E' && cognome[i] != 'I' && cognome[i] != 'O' && cognome[i] != 'U')
+        {
+            c[cons] = cognome[i];
+            cons = cons + 1;
+        }
+        else if (cognome[i] == 'A' || 'E' || 'I' || 'O' || 'U')
+        {
+            v[voc] = cognome[i];
+            voc = voc + 1;
+        }
+    }
+
+    if (cons >= 3)
+    {
+        cf[0] = c[0]; // Prima consonante
+        cf[1] = c[1]; // Seconda consonante
+        cf[2] = c[2]; // Terza consonante
+    }
+    else if (cons < 3)
+    {
+        cf[0] = c[0]; // Prima consonante
+        cf[1] = c[1]; // Seconda consonante
+        cf[2] = v[0]; // Prima vocale
+    }
+    else if (cons < 2)
+    {
+        cf[0] = c[0]; // Prima consonante
+        cf[1] = v[0]; // Prima vocale
+        cf[2] = v[1]; // Seconda vocale
+    }
+    else if (cons == 1 && voc == 1)
+    {
+        cf[0] = c[0]; // Prima consonante
+        cf[1] = v[0]; // Prima vocale
+        cf[2] = 'X';  // X
+    }
+}
+                    </code>
+                </pre>
+            </td>
+            <td>
+                <p>In questa parte di codice abbiamo la prima funzione, ovvero quella per prendere le lettere del cognome.</p>
+            </td>
+        </tr>
+    </table>
+  </body>
+</html>
