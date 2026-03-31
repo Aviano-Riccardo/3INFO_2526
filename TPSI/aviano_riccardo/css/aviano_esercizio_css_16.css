@@ -1,0 +1,16 @@
+.bg1 {
+    background-image: url("../css/immagini_css/japan.webp");
+    width: 200px;
+    height: 300px;
+}
+
+.bg2 {
+    background-image: url("/home/rick/3INFO_2526/TPSI/aviano_riccardo/css/immagini_css/japan.webp");
+    width: 25%;
+    height: 30%;
+}
+.bg3, .bg4, .bg5, .bg6 {
+    background-image: url("../css/immagini_css/japan.webp");
+    width: 200px;
+    height: 300px;
+}
