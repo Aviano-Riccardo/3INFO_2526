@@ -1,0 +1,19 @@
+table {
+    align-items: center;
+    border: 20px solid blue;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+td {
+    border: 1px solid black;
+}
+
+.disc {
+    text-align: center;
+    font-weight: bold;
+    border-top: 1px solid black;
+}
