@@ -1,18 +1,21 @@
 .container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: space-evenly;
   background-color: #881D8D;
-  width: 300px;
+  width: 350px;
   height: 200px;
   padding: 10px;
 }
 
+.item2 {
+  flex-shrink: 4;
+}
+
 .item {
+  flex-shrink: 1;
+  flex-grow: 1;
   background-color: #FFAD49;
   border: 1px solid #FF920D;
-  width: 80px;
+  width: 60px;
   height: 20px;
   padding: 10px;
   text-align:center;
