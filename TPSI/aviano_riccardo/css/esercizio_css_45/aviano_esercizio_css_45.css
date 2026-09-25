@@ -1,0 +1,12 @@
+body {
+    display: flex;
+    flex-direction: row;
+}
+.container {
+    background-color: rgb(53, 53, 174);
+    width: 200px;
+    height: 400px;
+    color: white;
+    border: solid, 30px, rgb(0, 0, rgb(0, 136, 255));
+    border-radius: 3px;
+}
