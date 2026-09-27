@@ -1,12 +1,12 @@
-body {
+.container {
     display: flex;
     flex-direction: row;
 }
-.container {
-    background-color: rgb(53, 53, 174);
+.item {
+    background-color: rgb(47, 70, 148);
     width: 200px;
     height: 400px;
     color: white;
-    border: solid, 30px, rgb(0, 0, rgb(0, 136, 255));
+    border: solid, 3px, lightblue;
     border-radius: 3px;
 }
